@@ -1,0 +1,28 @@
+<div class="container my-5">
+  <ul *ngIf="idExiste; else nExistePas" class="list-group shadow-sm rounded border">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <strong>ID</strong> <span class="text-muted">{{contact.id}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <strong>Nom</strong> <span class="text-muted">{{contact.Nom}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <strong>Prénom</strong> <span class="text-muted">{{contact.Prenom}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <strong>Date de Naissance</strong> <span class="text-muted">{{contact.dateN}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <strong>Email</strong> <span class="text-muted">{{contact.email}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <strong>Téléphone</strong> <span class="text-muted">{{contact.tel}}</span>
+    </li>
+  </ul>
+  
+  <ng-template #nExistePas>
+    <div class="alert alert-danger mt-3" role="alert">
+      Aucun contact trouvé pour cet ID {{id}}.
+    </div>
+  </ng-template>
+</div>

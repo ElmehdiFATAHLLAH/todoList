@@ -1,0 +1,37 @@
+<div class="container my-5 table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let contact of dataContact">
+        <td>{{ contact.id }}</td>
+        <td>{{ contact.Nom }}</td>
+        <td>{{ contact.Prenom }}</td>
+        <td>
+          <button class="btn btn-outline-success" routerLink="voirContact/{{contact.id}}">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-outline-primary" routerLink="modifierContact/{{contact.id}}">
+            <i class="fas fa-edit"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-outline-danger" (click)="supprimer(contact.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
