@@ -1,5 +1,53 @@
 <div class="container my-5 table-responsive">
-  <table class="table table-striped">
+  <div class="row justify-content-center my-4">
+    <div class="col-md-6">
+      <div class="input-group">
+        <input type="text" placeholder="Chercher un contact" class="form-control" [(ngModel)]="elementChercher" (input)="chercher(elementChercher)"/>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="filtrer">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let contact of contactFiltre">
+          <td>{{ contact.id }}</td>
+          <td>{{ contact.Nom }}</td>
+          <td>{{ contact.Prenom }}</td>
+          <td>
+            <button class="btn btn-outline-success" routerLink="voirContact/{{contact.id}}">
+              <i class="fas fa-info-circle"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-outline-primary" routerLink="modifierContact/{{contact.id}}">
+              <i class="fas fa-edit"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-outline-danger" (click)="supprimer(contact.id)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+  </div>
+  <table class="table table-striped" *ngIf="!filtrer">
     <thead>
       <tr>
         <th>Id</th>
